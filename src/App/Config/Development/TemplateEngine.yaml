@@ -1,0 +1,4 @@
+TemplateEngine:
+    Engines:
+        Smarty:
+            ForceCompile: true
