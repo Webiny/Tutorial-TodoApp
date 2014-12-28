@@ -38,7 +38,6 @@ class AbstractController
         $user = $this->security('Admin')->getUser();
         $this->app()->view()->assign(['userAuthenticated' => $user->hasRole('ROLE_USER')]);
         $this->app()->view()->assign(['userIsAdmin' => $user->hasRole('ROLE_ADMIN')]);
-
     }
 
 }

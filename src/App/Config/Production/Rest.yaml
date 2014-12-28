@@ -1,6 +1,6 @@
 Rest:
     TodoServices:
-        CompilePath: /var/www/projects/todo/App/Cache/Rest
+        CompilePath: ../App/Cache/Rest
         Router:
             Class: \Todo\Modules\{module}\RestServices\{service}
             Path: /api/{module}/{service}

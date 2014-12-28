@@ -1,6 +1,6 @@
 {extends file="Default/Master.tpl"}
 
-{block name="content"}
+{block name="mainContent"}
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -19,8 +19,8 @@
                     <hr/>
 
                     <div id="task-list">
-                        {if is_array($ctrl.user.tasks)}
-                            {foreach $ctrl.user.tasks as $task}
+                        {if is_array($Ctrl.user.tasks)}
+                            {foreach $Ctrl.user.tasks as $task}
                                 <div class="well {if $task.completed}completed{/if}" id="task-{$task.id}">
                                     <div class="row">
                                         <div class="col-md-7">
@@ -83,7 +83,7 @@
 
 {block name="javascriptScripts"}
     <script type="text/javascript">
-        var userId = "{$ctrl.user.id}";
+        var userId = "{$Ctrl.user.id}";
     </script>
 {literal}
     <script type="text/javascript">

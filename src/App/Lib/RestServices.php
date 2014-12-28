@@ -2,11 +2,14 @@
 
 namespace Todo\Lib;
 
+use Webiny\Component\Bootstrap\ApplicationTraits\AppTrait;
 use Webiny\Component\Rest\Rest;
 
 class RestServices
 {
-    public static function callRest()
+    use AppTrait;
+
+    public static function callRestAction()
     {
         try {
             $rest = Rest::initRest('TodoServices');

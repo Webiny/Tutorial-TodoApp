@@ -83,7 +83,5 @@ class Login extends AbstractController
         ###########################################
         // assign the view data
         $this->app()->view()->assign($viewData);
-        // send the output to the browser
-        $this->app()->htmlResponse()->send();
     }
 }

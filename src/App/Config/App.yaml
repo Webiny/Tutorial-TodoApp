@@ -2,7 +2,6 @@ Application:
     Namespace: Todo
     Environments:
         Production:
-            Domain: http://www.myapp.com/
             ErrorReporting: on
         #Development:
             #Domain: http://www.myapp.com/

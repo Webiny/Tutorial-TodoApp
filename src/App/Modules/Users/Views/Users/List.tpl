@@ -1,23 +1,23 @@
 {extends file="Default/Master.tpl"}
 
-{block name="content"}
+{block name="mainContent"}
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            {if $ctrl.userCount<1}
+            {if $Ctrl.userCount<1}
                 <div class="alert alert-info" role="alert">
                     There are no users in the database. Click the button to create one.
                 </div>
             {/if}
 
-            {if $ctrl.message}
+            {if $Ctrl.message}
                 <div class="alert alert-info" role="alert">
-                    {$ctrl.message}
+                    {$Ctrl.message}
                 </div>
             {/if}
 
             <a class="btn btn-primary" href="/users/account/0">Create a new user account</a>
 
-            {if $ctrl.userCount>0}
+            {if $Ctrl.userCount>0}
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -29,7 +29,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {foreach $ctrl.users as $user}
+                        {foreach $Ctrl.users as $user}
                             <tr>
                                 <td>{$user.id}</td>
                                 <td>{$user.username}</td>

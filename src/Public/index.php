@@ -10,4 +10,4 @@ $classLoaderMap = [
 Webiny\Component\ClassLoader\ClassLoader::getInstance()->registerMap($classLoaderMap);
 
 // Run the application
-Webiny\Component\Bootstrap\Bootstrap::runApplication(__DIR__.'/../');
+Webiny\Component\Bootstrap\Bootstrap::getInstance()->runApplication(__DIR__.'/../');

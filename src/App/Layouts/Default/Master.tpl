@@ -21,8 +21,8 @@
                 <li>
                     <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
                 </li>
-                {if $ctrl.userAuthenticated}
-                    {if $ctrl.userIsAdmin}
+                {if $Ctrl.userAuthenticated}
+                    {if $Ctrl.userIsAdmin}
                     <li>
                         <a href="/users/"><span class="glyphicon glyphicon-user"></span> Manage Users</a>
                     </li>
@@ -56,7 +56,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            {block name="content"}{/block}
+            {block name="mainContent"}{/block}
         </div>
     </div>
 </div>

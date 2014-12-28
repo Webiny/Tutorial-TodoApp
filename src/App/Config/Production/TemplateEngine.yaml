@@ -2,7 +2,7 @@ TemplateEngine:
     Engines:
         Smarty:
             ForceCompile: false
-            CacheDir: '/var/www/projects/todo/App/Cache/Smarty/Cache'
-            CompileDir: '/var/www/projects/todo/App/Cache/Smarty/Compile'
-            TemplateDir: '/var/www/projects/todo/App/Layouts'
+            CacheDir: ../App/Cache/Smarty/Cache
+            CompileDir: ../App/Cache/Smarty/Compile
+            TemplateDir: ../App/Layouts
             AutoEscapeOutput: false

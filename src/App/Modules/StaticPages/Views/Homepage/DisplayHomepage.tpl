@@ -1,6 +1,6 @@
 {extends file="Default/Master.tpl"}
 
-{block name="content"}
+{block name="mainContent"}
 
             <div class="jumbotron">
                 <h1>Welcome!</h1>

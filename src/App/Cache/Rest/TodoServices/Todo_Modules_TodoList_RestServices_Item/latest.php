@@ -8,10 +8,10 @@
  * @rest.version v1.0
  * @rest.aliasVersion latest
  * @rest.url |url|
- * @rest.buildDate Wed, 17. Dec, 2014 04:11:13
+ * @rest.buildDate Sun, 28. Dec, 2014 01:04:31
  */
 
-$a = include "/var/www/projects/todo/App/Cache/Rest/TodoServices/Todo_Modules_TodoList_RestServices_Item/v1.0.php";
+$a = include "../App/Cache/Rest/TodoServices/Todo_Modules_TodoList_RestServices_Item/v1.0.php";
 
 
 return $a;

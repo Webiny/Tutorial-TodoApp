@@ -31,9 +31,6 @@ class Users extends AbstractController
         $this->app()->view()->assign(['message'=>$this->httpSession()->get('message', false)]);
         $this->httpSession()->delete('message');
         ###########################################
-
-
-        $this->app()->htmlResponse()->send();
     }
 
     public function manageAccountAction($id)
@@ -99,9 +96,6 @@ class Users extends AbstractController
                 );
             }
         }
-
-
-        $this->app()->htmlResponse()->send();
     }
 
     public function deleteAccountAction($id)

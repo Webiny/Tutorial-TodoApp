@@ -15,7 +15,5 @@ class TodoList extends AbstractController
         $user = User::getCurrentUser()->toArray('*, tasks');
 
         $this->app()->view()->assign(['user' => $user]);
-
-        $this->app()->htmlResponse()->send();
     }
 }

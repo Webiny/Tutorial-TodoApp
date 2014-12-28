@@ -4,6 +4,7 @@ namespace Todo\Modules\TodoList\RestServices;
 
 use Todo\Modules\TodoList\Models\TodoTask;
 use Webiny\Component\Http\HttpTrait;
+use Webiny\Component\Rest\RestErrorException;
 
 class Item
 {
@@ -33,7 +34,7 @@ class Item
     {
         $task = TodoTask::findById($id);
         if ($task) {
-            if($task->completed==true){
+            if($task->completed->getValue()==true){
                 $task->completed = false;
             }else{
                 $task->completed = true;

@@ -1,6 +1,6 @@
 {extends file="Default/Master.tpl"}
 
-{block name="content"}
+{block name="mainContent"}
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
@@ -8,9 +8,9 @@
                     <form role="form" method="post" action="">
                         <h2 class="text-center"><span class="glyphicon glyphicon-lock"></span> Login</h2>
                         <hr/>
-                        {if $ctrl.login.error}
+                        {if $Ctrl.login.error}
                             <div class="alert alert-danger" role="alert">
-                                {$ctrl.login.errorMessage}
+                                {$Ctrl.login.errorMessage}
                             </div>
                         {/if}
                         <div class="form-group">

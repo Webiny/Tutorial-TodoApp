@@ -1,0 +1,55 @@
+Router:
+    Routes:
+        StartPage:
+            Path: /
+            Callback:
+                Class: Todo\Modules\StaticPages\Controllers\Homepage
+                Method: displayHomepage
+        Login:
+            Path: /login/
+            Callback:
+                Class: Todo\Modules\Auth\Controllers\Login
+                Method: loginForm
+        Logout:
+            Path: /logout/
+            Callback:
+                Class: Todo\Modules\Auth\Controllers\Logout
+                Method: logout
+        UserList:
+            Path: /users/
+            Callback:
+                Class: Todo\Modules\Users\Controllers\Users
+                Method: list
+        UserDelete:
+            Path: /users/delete/{id}/
+            Callback:
+                Class: Todo\Modules\Users\Controllers\Users
+                Method: deleteAccount
+        UserManageAccount:
+            Path: /users/account/{id}/
+            Callback:
+                Class: Todo\Modules\Users\Controllers\Users
+                Method: manageAccount
+        TodoList:
+            Path: /todo-list/
+            Callback:
+                Class: Todo\Modules\TodoList\Controllers\TodoList
+                Method: showList
+        RestRouter:
+            Path: /api/{service}
+            Options:
+                service:
+                    Pattern: .*?
+            Callback:
+                Class: \Todo\Lib\RestServices
+                Method: callRest
+                Static: true
+        MvcRouter:
+            Path: /{request}
+            Options:
+                request:
+                    Pattern: .*?
+            Callback:
+                Class: Webiny\Component\Bootstrap\Bootstrap
+                Method: mvcRouter
+                Static: true
