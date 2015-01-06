@@ -4,5 +4,5 @@ Rest:
         Router:
             Class: \Todo\Modules\{module}\RestServices\{service}
             Path: /api/{module}/{service}
-            Normalize: true
+            Normalize: false
         Environment: development

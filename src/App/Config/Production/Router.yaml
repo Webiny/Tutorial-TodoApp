@@ -44,12 +44,3 @@ Router:
                 Class: \Todo\Lib\RestServices
                 Method: callRest
                 Static: true
-        MvcRouter:
-            Path: /{request}
-            Options:
-                request:
-                    Pattern: .*?
-            Callback:
-                Class: Webiny\Component\Bootstrap\Bootstrap
-                Method: mvcRouter
-                Static: true

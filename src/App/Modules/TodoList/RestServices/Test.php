@@ -3,8 +3,17 @@ namespace Todo\Modules\TodoList\RestServices;
 
 class Test
 {
-    public function enter($name, $id=12)
+    /**
+     * @rest.method GET
+     *
+     * @param string $number
+     * @param bool   $object
+     *
+     * @return JsonResponse
+     */
+    public function searchData($number, $object = false)
     {
-        return 'enter: '.$name.' id:'.$id;
+        return 'Number:'.$number.' object:'.$object;
+        //www.myapp.com/api/TodoList/Test/searchData/100869/
     }
 }
