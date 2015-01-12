@@ -43,4 +43,3 @@ Router:
             Callback:
                 Class: \Todo\Lib\RestServices
                 Method: callRest
-                Static: true

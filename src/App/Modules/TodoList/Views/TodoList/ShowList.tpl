@@ -55,7 +55,8 @@
         .completed {
             background-color: lightgreen;
         }
-        .completed h5{
+
+        .completed h5 {
             text-decoration: line-through;
         }
     </style>
@@ -93,7 +94,7 @@
                 'user': userId,
                 'task': $('#task').val()
             };
-            $.post("/api/todo-list/item/create-task", postData, function (data) {
+            apiCall("/api/todo-list/item/create-task", postData, function (data) {
                 var task = data.data;
                 var template = $('#task-template').html();
                 var html = $(template);
@@ -113,7 +114,7 @@
         });
 
         function toggleStatus(id) {
-            $.get("/api/todo-list/item/toggle-status/" + id, function (data) {
+            apiCall("/api/todo-list/item/toggle-status/" + id, null, function (data) {
                 if (data.data.completed) {
                     $('#task-' + id).addClass('completed');
                 } else {
@@ -123,11 +124,43 @@
         }
 
         function deleteTask(id) {
-            $.get("/api/todo-list/item/delete-task/" + id, function (data) {
+            apiCall("/api/todo-list/item/delete-task/" + id, null, function (data) {
                 if (data.data) {
                     $('#task-' + id).fadeOut();
                 }
             });
+        }
+
+        function apiCall(url, postData, callback) {
+            if (postData != null) {
+                $.post(url, postData, function (data) {
+                    var isResponseValid = validateResponse(data);
+                    if (isResponseValid) {
+                        callback(data);
+                    }
+                });
+            } else {
+                $.get(url, function (data) {
+                    var isResponseValid = validateResponse(data);
+                    if (isResponseValid) {
+                        callback(data);
+                    }
+                });
+            }
+        }
+
+        function validateResponse(data) {
+            if (typeof data == 'object' && typeof data.data != 'undefined') {
+                return true;
+            }
+
+            if (typeof data.data != 'object' && typeof data.errorReport == 'object') {
+                alert(data.errorReport.message);
+                return false;
+            }
+
+            alert('There has been a server error. Check your console response.');
+            return false;
         }
     </script>
 {/literal}

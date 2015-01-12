@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-12-28 00:55:57
+<?php /* Smarty version Smarty-3.1-DEV, created on 2015-01-12 20:39:13
          compiled from "../App/Modules/TodoList/Views/TodoList/ShowList.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1171448773549f551d55e612-33263053%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a8dbf56b9ed129d569fc47a051c299049bd18274' => 
     array (
       0 => '../App/Modules/TodoList/Views/TodoList/ShowList.tpl',
-      1 => 1419728021,
+      1 => 1421095140,
       2 => 'file',
     ),
     '223a587f29c1b47797a86871e7879044bb60543e' => 
@@ -21,6 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1-DEV',
+  'unifunc' => 'content_549f551d5e0b97_71123438',
   'variables' => 
   array (
     'View' => 0,
@@ -28,8 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'Ctrl' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1-DEV',
-  'unifunc' => 'content_549f551d5e0b97_71123438',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_549f551d5e0b97_71123438')) {function content_549f551d5e0b97_71123438($_smarty_tpl) {?><!doctype html>
 <html lang="en">
@@ -157,7 +157,8 @@ $_smarty_tpl->tpl_vars['task']->_loop = true;
         .completed {
             background-color: lightgreen;
         }
-        .completed h5{
+
+        .completed h5 {
             text-decoration: line-through;
         }
     </style>
@@ -203,7 +204,7 @@ $_smarty_tpl->tpl_vars['task']->_loop = true;
                 'user': userId,
                 'task': $('#task').val()
             };
-            $.post("/api/todo-list/item/create-task", postData, function (data) {
+            apiCall("/api/todo-list/item/create-task", postData, function (data) {
                 var task = data.data;
                 var template = $('#task-template').html();
                 var html = $(template);
@@ -223,7 +224,7 @@ $_smarty_tpl->tpl_vars['task']->_loop = true;
         });
 
         function toggleStatus(id) {
-            $.get("/api/todo-list/item/toggle-status/" + id, function (data) {
+            apiCall("/api/todo-list/item/toggle-status/" + id, null, function (data) {
                 if (data.data.completed) {
                     $('#task-' + id).addClass('completed');
                 } else {
@@ -233,11 +234,43 @@ $_smarty_tpl->tpl_vars['task']->_loop = true;
         }
 
         function deleteTask(id) {
-            $.get("/api/todo-list/item/delete-task/" + id, function (data) {
+            apiCall("/api/todo-list/item/delete-task/" + id, null, function (data) {
                 if (data.data) {
                     $('#task-' + id).fadeOut();
                 }
             });
+        }
+
+        function apiCall(url, postData, callback) {
+            if (postData != null) {
+                $.post(url, postData, function (data) {
+                    var isResponseValid = validateResponse(data);
+                    if (isResponseValid) {
+                        callback(data);
+                    }
+                });
+            } else {
+                $.get(url, function (data) {
+                    var isResponseValid = validateResponse(data);
+                    if (isResponseValid) {
+                        callback(data);
+                    }
+                });
+            }
+        }
+
+        function validateResponse(data) {
+            if (typeof data == 'object' && typeof data.data != 'undefined') {
+                return true;
+            }
+
+            if (typeof data.data != 'object' && typeof data.errorReport == 'object') {
+                alert(data.errorReport.message);
+                return false;
+            }
+
+            alert('There has been a server error. Check your console response.');
+            return false;
         }
     </script>
 

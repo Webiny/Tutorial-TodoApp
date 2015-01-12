@@ -9,15 +9,19 @@ class RestServices
 {
     use AppTrait;
 
-    public static function callRestAction()
+    public function callRestAction()
     {
         try {
             $rest = Rest::initRest('TodoServices');
             if ($rest) {
                 $rest->processRequest()->sendOutput();
             }
-        } catch (RestException $e) {
-            throw $e;
+        } catch (\Exception $e) {
+            if (self::app()->showErrors()) {
+                throw $e;
+            }else{
+                die(); // silently
+            }
         }
     }
 }

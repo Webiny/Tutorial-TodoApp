@@ -6,7 +6,7 @@
  *
  * @rest.class \Todo\Modules\TodoList\RestServices\Item
  * @rest.version v1.0
- * @rest.buildDate Sun, 28. Dec, 2014 01:04:31
+ * @rest.buildDate Mon, 12. Jan, 2015 20:40:47
  */
 
 $a = array (
@@ -241,7 +241,7 @@ $a = array (
       array (
         'content' => 
         array (
-          'required' => true,
+          'required' => false,
           'type' => 'string',
           'default' => '',
         ),
@@ -253,7 +253,7 @@ $a = array (
         ),
         'headers' => 
         array (
-          'required' => true,
+          'required' => false,
           'type' => 'string',
           'default' => 
           array (
