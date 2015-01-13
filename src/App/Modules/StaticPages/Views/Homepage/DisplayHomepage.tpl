@@ -12,8 +12,7 @@
                 </p>
                 <h2>Before you start</h2>
                 <p>
-                    Make sure you edit the <strong>App.yaml</strong> file in <strong>App/Config</strong> folder, and the
-                    <strong>Mongo.yaml</strong> file in <strong>App/Config/Production</strong> folder to setup your database
+                    Make sure you edit the <strong>Mongo.yaml</strong> file in <strong>App/Config/Production</strong> folder to setup your database
                     connection.
                 </p>
                 <br/>

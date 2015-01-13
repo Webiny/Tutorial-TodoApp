@@ -6,7 +6,7 @@
  *
  * @rest.class \Todo\Modules\TodoList\RestServices\Item
  * @rest.version v1.0
- * @rest.buildDate Mon, 12. Jan, 2015 20:40:47
+ * @rest.buildDate Tue, 13. Jan, 2015 18:54:35
  */
 
 $a = array (

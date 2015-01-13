@@ -3,6 +3,3 @@ Application:
     Environments:
         Production:
             ErrorReporting: on
-        #Development:
-            #Domain: http://www.myapp.com/
-            #ErrorReporting: on

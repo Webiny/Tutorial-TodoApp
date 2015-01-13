@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-12-28 01:05:38
+<?php /* Smarty version Smarty-3.1-DEV, created on 2015-01-13 18:54:24
          compiled from "../App/Modules/StaticPages/Views/Homepage/DisplayHomepage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:192005682549f5762d736f4-51918201%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9df376906cdfad68fd501311f8e8a9c5bd38e943' => 
     array (
       0 => '../App/Modules/StaticPages/Views/Homepage/DisplayHomepage.tpl',
-      1 => 1419727571,
+      1 => 1421121728,
       2 => 'file',
     ),
     '223a587f29c1b47797a86871e7879044bb60543e' => 
@@ -21,6 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1-DEV',
+  'unifunc' => 'content_549f5762db5944_78105303',
   'variables' => 
   array (
     'View' => 0,
@@ -28,8 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'Ctrl' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1-DEV',
-  'unifunc' => 'content_549f5762db5944_78105303',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_549f5762db5944_78105303')) {function content_549f5762db5944_78105303($_smarty_tpl) {?><!doctype html>
 <html lang="en">
@@ -105,8 +105,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </p>
                 <h2>Before you start</h2>
                 <p>
-                    Make sure you edit the <strong>App.yaml</strong> file in <strong>App/Config</strong> folder, and the
-                    <strong>Mongo.yaml</strong> file in <strong>App/Config/Production</strong> folder to setup your database
+                    Make sure you edit the <strong>Mongo.yaml</strong> file in <strong>App/Config/Production</strong> folder to setup your database
                     connection.
                 </p>
                 <br/>
