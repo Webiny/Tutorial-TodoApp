@@ -31,10 +31,10 @@ class Login extends AbstractController
         if ($fw->getUser()->hasRole('ROLE_USER')) {
             if($fw->getUser()->hasRole('ROLE_ADMIN')){
                 // redirect the user to the user admin page
-                $this->httpRequest()->redirect($userAdminUrl);
+                $this->httpRedirect($userAdminUrl);
             }else{
                 // redirect user to the todo list page
-                $this->httpRequest()->redirect($todoListUrl);
+                $this->httpRedirect($todoListUrl);
             }
         }
         ###########################################
@@ -60,10 +60,10 @@ class Login extends AbstractController
                 // credentials are valid
                 if($fw->getUser()->hasRole('ROLE_ADMIN')){
                     // redirect the user to the user admin page
-                    $this->httpRequest()->redirect($userAdminUrl);
+                    $this->httpRedirect($userAdminUrl);
                 }else{
                     // redirect the user to the todo list page
-                    $this->httpRequest()->redirect($todoListUrl);
+                    $this->httpRedirect($todoListUrl);
                 }
             }else{
                 // credentials are invalid

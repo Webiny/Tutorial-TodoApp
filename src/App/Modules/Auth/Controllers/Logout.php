@@ -14,6 +14,6 @@ class Logout extends AbstractController
     public function LogoutAction()
     {
         $this->security('Admin')->processLogout();
-        $this->httpRequest()->redirect($this->router()->generate('StartPage'));
+        $this->httpRedirect($this->router()->generate('StartPage'));
     }
 }

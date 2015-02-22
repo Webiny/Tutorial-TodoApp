@@ -16,9 +16,11 @@ class Users extends AbstractController
         ###########################################
         # Get all users from the database
         ###########################################
+        $users = User::find()->toArray('*,tasks');
+        $userCount = User::find()->totalCount();
         $this->app()->view()->assign([
-                                         'users'     => User::find()->toArray('*,tasks'),
-                                         'userCount' => User::find()->totalCount()
+                                         'users'     => $users,
+                                         'userCount' => $userCount
                                      ]
         );
         ###########################################
@@ -84,7 +86,7 @@ class Users extends AbstractController
                     $user->save();
 
                     // redirect
-                    $this->httpRequest()->redirect($this->router()->generate('UserList'));
+                    $this->httpRedirect($this->router()->generate('UserList'));
                 }
             } catch (\Exception $e) {
                 $this->app()->view()->assign([
@@ -109,6 +111,6 @@ class Users extends AbstractController
             $this->httpSession()->save('message', 'User not found.');
         }
 
-        $this->httpRequest()->redirect($userAdminUrl);
+        $this->httpRedirect($userAdminUrl);
     }
 }
